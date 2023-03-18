@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useDispatch } from "react-redux";
+import JokeList from "./components/JokeList";
+import { reset } from "./store";
 function App() {
+  const dispatch = useDispatch();
+  const handleReset = () => {
+    dispatch(reset());
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <button
+        className="bg-red-500 rounded-full p-4 mx-12 my-12 text-white"
+        onClick={() => handleReset()}
+      >
+        Reset Everything
+      </button>
+      <br></br>
+      <JokeList />
     </div>
   );
 }
